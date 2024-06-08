@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tmdb_movies/screens/movie_search/movie_search_page.dart';
+import 'package:tmdb_movies/utils/custom_navigator.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
@@ -34,12 +36,14 @@ class CustomAppBar extends StatelessWidget {
                   fontWeight: FontWeight.bold),
             ),
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  CustomNavigator.push(context, const MovieSearchScreen());
+                },
                 style: ButtonStyle(
                     backgroundColor:
                         WidgetStatePropertyAll(Colors.grey.shade700)),
                 icon: const Icon(
-                  Icons.more_horiz_outlined,
+                  Icons.search_rounded,
                   color: Colors.white,
                 )),
           ],

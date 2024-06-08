@@ -151,17 +151,23 @@ class _HomePageState extends State<HomePage> {
                             movies.length,
                             (index) => Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Container(
-                                    width: 130,
-                                    height: 180,
-                                    decoration: BoxDecoration(
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                            fit: BoxFit.cover,
-                                            image: NetworkImage(
-                                                movies[index].posterPath)),
-                                        borderRadius:
-                                            BorderRadius.circular(15)),
+                                  child: InkWell(
+                                    onTap: () {
+                                      CustomNavigator.push(context,
+                                          MovieView(movie: movies[index]));
+                                    },
+                                    child: Container(
+                                      width: 130,
+                                      height: 180,
+                                      decoration: BoxDecoration(
+                                          color: Colors.grey,
+                                          image: DecorationImage(
+                                              fit: BoxFit.cover,
+                                              image: NetworkImage(
+                                                  movies[index].posterPath)),
+                                          borderRadius:
+                                              BorderRadius.circular(15)),
+                                    ),
                                   ),
                                 )),
                       ),
